@@ -1,0 +1,48 @@
+.task-card-area {
+    min-height: 100px;
+    padding: 0 10px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 5px 0.8vw 10px 0.8vw;
+}
+
+.display-container {
+    color: white;
+    border-radius: 15px;
+    padding: 0.7vw;
+    margin: 1vw;
+    background-color: #666666;
+}
+
+h2 {
+    margin-left: 0.8vw;
+    font-weight: bold;
+}
+
+.operate-button {
+    margin: 5px 1vw;
+}
+
+app-group-detail-task-card {
+    margin: 1vw;
+}
+
+.detail-text-label {
+    font-size: 0.8em;
+    margin: 5px 0.8vw 0 0.8vw;
+}
+
+.task-list-label {
+    font-size: 1.2em;
+    margin: 5px 0.8vw 0 0.8vw;
+}
+
+.detail-text-area {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    min-height: 50px;
+    color: black;
+    font-size: 1.0em;
+    margin: 5px 0.8vw 0 0.8vw;
+}

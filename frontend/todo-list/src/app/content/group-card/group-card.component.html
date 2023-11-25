@@ -1,0 +1,34 @@
+<mat-card (click)="onCardClick()">
+  <div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <div fxLayout="column">
+        <span class="group-name-label">グループ名</span>
+        <span class="group-name">{{ group.name }}</span>
+      </div>
+      <span class="spacer"></span>
+      <div fxLayout="row">
+        <button
+          mat-raised-button
+          class="operate-button"
+          (click)="onEditClick($event)"
+        >
+          編集
+        </button>
+        <button
+          mat-raised-button
+          class="operate-button"
+          (click)="onDelete($event)"
+        >
+          削除
+        </button>
+        <button mat-mini-fab class="operate-button" (click)="onClick($event)">
+          <mat-icon [@rotate]="rotateState">keyboard_arrow_down</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="panelOpenState">
+      <div class="detail-text-label">詳細</div>
+      <div class="detail-text-area" [innerHTML]="detailHtml"></div>
+    </div>
+  </div>
+</mat-card>

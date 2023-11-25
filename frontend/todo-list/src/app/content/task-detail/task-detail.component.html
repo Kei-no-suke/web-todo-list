@@ -1,0 +1,74 @@
+<div class="display-container">
+  <div *ngIf="existsTask">
+    <h2>{{ task.name }}</h2>
+    <div fxLayout="column">
+      <div class="deadline-label">締め切り日</div>
+      <div class="deadline-text" *ngIf="task.deadline != null">
+        {{ task.deadline }}
+      </div>
+      <div class="deadline-text" *ngIf="task.deadline == null">未登録</div>
+      <div class="detail-text-label">詳細</div>
+      <div class="detail-text-area" [innerHTML]="detailHtml"></div>
+      <form [formGroup]="taskForm">
+        <div fxLayout="row" fxLayoutAlign="start">
+          <mat-form-field style="margin-top: 15px">
+            <mat-label>グループ</mat-label>
+            <mat-select
+              formControlName="groupName"
+              (selectionChange)="onRegisterGroup()"
+            >
+              <mat-option value="0">グループなし</mat-option>
+              <mat-option
+                *ngFor="let group of groups"
+                [value]="group.groupId?.toString()"
+                >{{ group.name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="start">
+          <mat-form-field>
+            <mat-label>タスクの状態</mat-label>
+            <mat-select
+              (selectionChange)="onChangeStatus()"
+              formControlName="status"
+            >
+              <mat-option
+                *ngFor="let status of allTaskStatus"
+                [value]="status"
+                >{{ status }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
+
+      <div class="doc-url-label">詳細ドキュメントURL</div>
+      <a
+        class="doc-url-text"
+        [href]="task.docUrl"
+        (click)="$event.stopPropagation()"
+        *ngIf="task.docUrl != null"
+        >{{ task.docUrl }}</a
+      >
+      <p class="doc-url-text" *ngIf="task.docUrl == null">未登録</p>
+
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button
+          mat-raised-button
+          class="operate-button"
+          (click)="onEditClick()"
+        >
+          編集
+        </button>
+        <button mat-raised-button class="operate-button" (click)="onDelete()">
+          削除
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!existsTask">
+    <h2>該当するタスクが存在しません</h2>
+  </div>
+</div>

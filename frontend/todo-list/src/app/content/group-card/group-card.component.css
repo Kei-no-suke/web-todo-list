@@ -1,0 +1,39 @@
+.spacer {
+    flex: auto;
+}
+
+.group-name {
+    width: 20vw;
+    font-size: 1.5em;
+    margin: 0 0.8vw;
+    padding-bottom: 18px;
+}
+
+.operate-button {
+    margin: 5px 1vw;
+}
+
+mat-card:hover {
+    background-color: #525252;
+    cursor: pointer;
+}
+
+mat-card {
+    padding: 5px;
+}
+
+.detail-text-label,
+.group-name-label {
+    font-size: 0.8em;
+    margin: 5px 0.8vw 0 0.8vw;
+}
+
+.detail-text-area {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    min-height: 50px;
+    color: black;
+    font-size: 1.0em;
+    margin: 5px 0.8vw 0 0.8vw;
+}

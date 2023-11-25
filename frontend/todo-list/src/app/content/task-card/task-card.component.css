@@ -1,0 +1,76 @@
+.spacer {
+    flex: auto;
+}
+
+mat-form-field {
+    max-width: 180px;
+    height: 73px;
+    margin-top: 15px;
+    margin-left: 0.8vw;
+}
+
+.task-name {
+    min-width: 368px;
+    width: 35vw;
+    font-size: 1.5em;
+    margin: 0 0.8vw;
+    padding-bottom: 18px;
+}
+
+.group-name {
+    width: 20vw;
+    font-size: 1.5em;
+    margin: 0 0.8vw;
+    padding-bottom: 18px;
+}
+
+.operate-button {
+    margin: 5px 1vw;
+}
+
+mat-card:hover {
+    background-color: #525252;
+    cursor: pointer;
+}
+
+mat-card {
+    padding-bottom: 10px;
+}
+
+.detail-text-label,
+.doc-url-label,
+.deadline-label,
+.group-name-label,
+.task-name-label {
+    font-size: 0.8em;
+    margin: 5px 0.8vw 0 0.8vw;
+}
+
+.detail-text-area {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    min-height: 50px;
+    color: black;
+    font-size: 1.0em;
+    margin: 5px 0.8vw 0 0.8vw;
+}
+
+.deadline-text,
+.doc-url-text {
+    color: white;
+    font-size: 1.0em;
+    margin: 5px 0.8vw 0 0.8vw;
+}
+
+@media screen and (max-width: 599px) {
+    .task-name {
+        min-width: 359px;
+    }
+}
+
+@media screen and (max-width: 372px) {
+    .task-name {
+        min-width: 260px;
+    }
+}

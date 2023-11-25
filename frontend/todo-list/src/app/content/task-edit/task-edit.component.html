@@ -1,0 +1,64 @@
+<div class="display-container">
+  <h2>タスク編集</h2>
+
+  <form [formGroup]="taskForm">
+    <div fxLayout="column" fxLayoutAlign="start">
+      <mat-form-field>
+        <mat-label>タスク名</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>詳細</mat-label>
+        <textarea matInput formControlName="detail"></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>グループ</mat-label>
+        <mat-select formControlName="groupName">
+          <mat-option value="0">グループなし</mat-option>
+          <mat-option
+            *ngFor="let group of groups"
+            [value]="group.groupId?.toString()"
+            >{{ group.name }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>タスクの状態</mat-label>
+        <mat-select formControlName="status">
+          <mat-option *ngFor="let status of allTaskStatus" [value]="status">{{
+            status
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>締め切り日</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="deadline" />
+        <mat-hint>YYYY/MM/DD</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>詳細ドキュメントURL</mat-label>
+        <input matInput placeholder="https://..." formControlName="docUrl" />
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button
+          mat-raised-button
+          class="operate-button"
+          (click)="onUpdate()"
+          [disabled]="name?.invalid || groupName?.invalid || status?.invalid"
+        >
+          完了
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

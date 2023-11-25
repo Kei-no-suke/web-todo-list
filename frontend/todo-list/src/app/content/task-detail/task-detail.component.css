@@ -1,0 +1,52 @@
+.display-container {
+    color: white;
+    border-radius: 15px;
+    padding: 0.7vw;
+    margin: 1vw;
+    background-color: #666666;
+}
+
+h2 {
+    font-weight: bold;
+    margin-left: 0.8vw;
+}
+
+.operate-button {
+    margin: 5px 1vw;
+}
+
+.doc-url-text {
+    color: white;
+}
+
+.detail-text-label,
+.doc-url-label,
+.deadline-label,
+.group-name-label,
+.task-name-label {
+    font-size: 0.8em;
+    margin: 5px 0.8vw 0 0.8vw;
+}
+
+.detail-text-area {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    min-height: 50px;
+    color: black;
+    font-size: 1.0em;
+    margin: 5px 0.8vw 0 0.8vw;
+}
+
+.deadline-text,
+.doc-url-text {
+    color: white;
+    font-size: 1.0em;
+    margin: 5px 0.8vw 0 0.8vw;
+}
+
+mat-form-field {
+    max-width: 180px;
+    height: 73px;
+    margin-left: 0.8vw;
+}

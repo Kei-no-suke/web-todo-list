@@ -1,0 +1,49 @@
+<div class="login-form-background" fxLayout="row" fxLayoutAlign="center center">
+  <form [formGroup]="pUserForm" class="login-form">
+    <h2>サインアップフォーム</h2>
+    <div *ngIf="failedFlag" class="error-msg">
+      すでに使われているEmailです。
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+        <mat-error *ngIf="email?.invalid">{{ getEmailErrorMsg() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>パスワード</mat-label>
+        <input matInput type="password" formControlName="password" />
+        <mat-error *ngIf="password?.invalid">{{
+          getPasswordErrorMsg()
+        }}</mat-error>
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button
+          type="submit"
+          mat-raised-button
+          class="operate-button"
+          (click)="onSignup($event)"
+          [disabled]="password?.invalid || email?.invalid"
+        >
+          サインアップ
+        </button>
+      </div>
+    </div>
+    <mat-spinner *ngIf="!doneFlag" [diameter]="40"></mat-spinner>
+    <span *ngIf="!doneFlag"> サーバーの応答待ちです... </span>
+    <h2>注意</h2>
+    <ul>
+      <li>
+        このTodoリストは実務未経験の初心者がポートフォリオの一環として開発したものです。未熟な部分が存在するため、個人情報の取り扱いには十分にご注意ください。サインアップ時にはEmailアドレスを入力する欄がありますが、この欄にはEmailアドレス以外の文字列も受け付けています。このWebアプリを利用する際は、Emailアドレス以外の文字列の入力をお勧めします。
+      </li>
+      <li>
+        Render.comのFreeプランを使用してバックエンドを構築しています。このプランにはサーバーが15分間リクエストを受け付けないと自動的にシャットダウンされる仕様があります。そのため、初めてページにアクセスする際にサーバーの起動に2分以上の時間がかかる可能性があることをご了承ください。2分以上かかる場合、ページのリロードも試してみてください。
+      </li>
+      <li>
+        このTodoリストの保存先はRender.comのFreeプランを利用したPostgreSQLデータベースです。このデータベースは一定期間後に削除されますので、重要なデータ保存には適していません。一時的に保存するものとしてご活用ください。
+      </li>
+    </ul>
+  </form>
+</div>

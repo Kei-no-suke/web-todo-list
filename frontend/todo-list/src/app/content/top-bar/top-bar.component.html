@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+  <span>Test App</span>
+  <span class="spacer"></span>
+  <span fxShow="true" fxHide.lt-md="true" class="button-container">
+    <button mat-raised-button class="navbar-button" routerLink="./task-list">
+      タスク一覧
+    </button>
+    <button mat-raised-button class="navbar-button" routerLink="./group-list">
+      グループ一覧
+    </button>
+    <button mat-raised-button class="navbar-button" routerLink="./task-create">
+      タスク作成
+    </button>
+    <button mat-raised-button class="navbar-button" routerLink="./group-create">
+      グループ作成
+    </button>
+    <button mat-raised-button class="navbar-button" (click)="onLogout()">
+      ログアウト
+    </button>
+  </span>
+  <span fxShow="true" fxHide.gt-sm="true">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="task-list">
+        <span>タスク一覧</span>
+      </button>
+      <button mat-menu-item routerLink="group-list">
+        <span>グループ一覧</span>
+      </button>
+      <button mat-menu-item routerLink="task-create">
+        <span>タスク作成</span>
+      </button>
+      <button mat-menu-item routerLink="group-create">
+        <span>グループ作成</span>
+      </button>
+      <button mat-menu-item (click)="onLogout()">
+        <span>ログアウト</span>
+      </button>
+    </mat-menu>
+  </span>
+</mat-toolbar>

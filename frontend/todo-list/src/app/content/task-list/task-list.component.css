@@ -1,0 +1,86 @@
+.display-container {
+    color: white;
+    border-radius: 15px;
+    padding: 0.7vw;
+    margin: 1vw;
+    background-color: #666666;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+mat-card {
+    margin: 1vw;
+}
+
+.filter-form-container,
+.filter-form-container-ver {
+    border-radius: 15px;
+    padding: 0.7vw;
+    margin-left: 2vw;
+    background-color: #00363D;
+}
+
+.filter-form-container-ver {
+    padding: 10px 0px 10px 20px;
+}
+
+.filter-form-container mat-form-field,
+.filter-form-container-ver mat-form-field {
+    margin: 0 0.5vw;
+}
+
+.filter-label {
+    margin: 0 0.5vw;
+}
+
+.spacer {
+    flex: auto;
+}
+
+#apply-filter-button {
+    margin-left: 0.5vw;
+}
+
+#apply-filter-button-ver {
+    margin-left: 0.5vw;
+    width: 38.5vw;
+    min-width: 350px;
+    margin-bottom: 10px;
+}
+
+.filter-header {
+    margin-left: 2vw;
+}
+
+.filter-container-hor {
+    border-left: 2px solid #00363D;
+}
+
+.task-list-header {
+    padding-bottom: 8px;
+    border-bottom: 2px solid #00363D;
+}
+
+.no-task-msg {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+mat-form-field {
+    height: 76px;
+    min-width: 180px;
+    width: 16vw;
+}
+
+app-task-card {
+    margin: 1vw;
+}
+
+@media screen and (max-width: 599px) {
+    #apply-filter-button-ver {
+        width: 10vw;
+        min-width: 190px;
+    }
+}

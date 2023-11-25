@@ -1,0 +1,13 @@
+<div class="display-container">
+  <h2>グループ一覧</h2>
+  <div *ngIf="existsGroup">
+    <app-group-card
+      *ngFor="let group of groups"
+      [group]="group"
+      (deleteEvent)="onDelete($event)"
+    ></app-group-card>
+  </div>
+  <div *ngIf="!existsGroup" class="no-group-msg">
+    表示するグループが存在しません
+  </div>
+</div>

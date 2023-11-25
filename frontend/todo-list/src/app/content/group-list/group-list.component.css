@@ -1,0 +1,21 @@
+.display-container {
+    color: white;
+    border-radius: 15px;
+    padding: 0.7vw;
+    margin: 1vw;
+    background-color: #666666;
+}
+
+.no-group-msg {
+    font-size: 1.2em;
+}
+
+h2 {
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #00363D;
+}
+
+app-group-card {
+    margin: 1vw;
+}

@@ -1,0 +1,154 @@
+<div class="display-container">
+  <div fxLayout="row" class="task-list-header">
+    <h2>タスク一覧</h2>
+
+    <span class="spacer"></span>
+
+    <div
+      fxLayout="column"
+      class="filter-container-hor"
+      fxHide.lt-md="true"
+      *ngIf="isGtSmall$"
+    >
+      <h2 class="filter-header">フィルター</h2>
+      <form
+        [formGroup]="filterForm"
+        fxLayout="row"
+        class="filter-form-container"
+      >
+        <div fxLayout="column">
+          <span class="filter-label">グループ</span>
+          <mat-form-field>
+            <mat-label>グループ</mat-label>
+            <mat-select formControlName="groupName">
+              <mat-option value="0">グループ指定なし</mat-option>
+              <mat-option
+                *ngFor="let group of groups"
+                [value]="group.groupId"
+                >{{ group.name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxLayout="column">
+          <span class="filter-label">締め切り日</span>
+          <div fxLayout="row">
+            <mat-form-field>
+              <mat-label>始端</mat-label>
+              <input
+                matInput
+                [matDatepicker]="startPicker"
+                formControlName="startDate"
+              />
+              <mat-hint>YYYY/MM/DD</mat-hint>
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="startPicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #startPicker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>終端</mat-label>
+              <input
+                matInput
+                [matDatepicker]="endPicker"
+                formControlName="endDate"
+              />
+              <mat-hint>YYYY/MM/DD</mat-hint>
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="endPicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #endPicker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="column">
+          <span class="spacer"></span>
+          <button
+            mat-raised-button
+            id="apply-filter-button"
+            (click)="onFilter()"
+          >
+            適用
+          </button>
+          <span class="spacer"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    fxLayout="column"
+    class="filter-container-ver"
+    fxHide.gt-sm="true"
+    *ngIf="isLteSmall$"
+  >
+    <h2 class="filter-header">フィルター</h2>
+    <form [formGroup]="filterForm" class="filter-form-container-ver">
+      <div fxLayout="column">
+        <span class="filter-label">グループ</span>
+        <mat-form-field>
+          <mat-label>グループ</mat-label>
+          <mat-select formControlName="groupName">
+            <mat-option value="0">グループ指定なし</mat-option>
+            <mat-option *ngFor="let group of groups" [value]="group.groupId">{{
+              group.name
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column">
+        <span class="filter-label">締め切り日</span>
+        <div fxLayout.gt-xs="row" fxLayout.xs="column" fxLayout.lt-xs="column">
+          <mat-form-field>
+            <mat-label>始端</mat-label>
+            <input
+              matInput
+              [matDatepicker]="startPicker"
+              formControlName="startDate"
+            />
+            <mat-hint>YYYY/MM/DD</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="startPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>終端</mat-label>
+            <input
+              matInput
+              [matDatepicker]="endPicker"
+              formControlName="endDate"
+            />
+            <mat-hint>YYYY/MM/DD</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="endPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #endPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="column">
+        <button
+          mat-raised-button
+          id="apply-filter-button-ver"
+          (click)="onFilter()"
+        >
+          適用
+        </button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="existsTask">
+    <app-task-card
+      *ngFor="let task of tasks"
+      [task]="task"
+      (deleteEvent)="onDelete($event)"
+    ></app-task-card>
+  </div>
+  <div *ngIf="!existsTask" class="no-task-msg">
+    表示するタスクが存在しません
+  </div>
+</div>

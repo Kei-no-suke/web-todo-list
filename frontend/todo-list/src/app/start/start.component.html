@@ -1,0 +1,34 @@
+<div class="start-background" fxLayout="row" fxLayoutAlign="center center">
+  <div class="start-container">
+    <button
+      mat-raised-button
+      class="operate-button"
+      routerLink="/login"
+      [disabled]="!startFlag"
+    >
+      ログイン
+    </button>
+    <button
+      mat-raised-button
+      class="operate-button"
+      routerLink="/content"
+      [disabled]="!authenticatedFlag"
+    >
+      マイページへ
+    </button>
+    <mat-spinner *ngIf="!startFlag" [diameter]="40"></mat-spinner>
+    <span *ngIf="!startFlag"> サーバーを起動中です... </span>
+    <h2>注意</h2>
+    <ul>
+      <li>
+        このTodoリストは実務未経験の初心者がポートフォリオの一環として開発したものです。未熟な部分が存在するため、個人情報の取り扱いには十分にご注意ください。サインアップ時にはEmailアドレスを入力する欄がありますが、この欄にはEmailアドレス以外の文字列も受け付けています。このWebアプリを利用する際は、Emailアドレス以外の文字列の入力をお勧めします。
+      </li>
+      <li>
+        Render.comのFreeプランを使用してバックエンドを構築しています。このプランにはサーバーが15分間リクエストを受け付けないと自動的にシャットダウンされる仕様があります。そのため、初めてページにアクセスする際にサーバーの起動に2分以上の時間がかかる可能性があることをご了承ください。2分以上かかる場合、ページのリロードも試してみてください。
+      </li>
+      <li>
+        このTodoリストの保存先はRender.comのFreeプランを利用したPostgreSQLデータベースです。このデータベースは一定期間後に削除されますので、重要なデータ保存には適していません。一時的に保存するものとしてご活用ください。
+      </li>
+    </ul>
+  </div>
+</div>

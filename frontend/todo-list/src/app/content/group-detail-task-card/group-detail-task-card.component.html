@@ -1,0 +1,85 @@
+<mat-card (click)="onCardClick()">
+  <div>
+    <div
+      fxLayout="row"
+      fxLayout.lt-lg="column"
+      fxLayoutAlign="center center"
+      fxLayoutAlign.lt-lg="center start"
+    >
+      <div
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayout.lt-md="column"
+        fxLayoutAlign.lt-lg="center start"
+      >
+        <div fxLayout="column">
+          <span class="task-name-label">タスク名</span>
+          <span class="task-name">{{ taskName }}</span>
+        </div>
+
+        <form [formGroup]="statusForm">
+          <mat-form-field (click)="$event.stopPropagation()">
+            <mat-label>タスクの状態</mat-label>
+            <mat-select
+              (selectionChange)="onChangeStatus()"
+              formControlName="status"
+            >
+              <mat-option
+                *ngFor="let status of allTaskStatus"
+                [value]="status"
+                >{{ status }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </div>
+
+      <span class="spacer" fxHide.lt-lg="true"></span>
+      <div fxLayout="row">
+        <button
+          mat-raised-button
+          class="operate-button"
+          (click)="onEditClick($event)"
+        >
+          編集
+        </button>
+        <button
+          mat-raised-button
+          class="operate-button"
+          (click)="removeTask($event)"
+        >
+          排除
+        </button>
+        <button
+          mat-raised-button
+          class="operate-button"
+          (click)="onDelete($event)"
+        >
+          削除
+        </button>
+        <span class="spacer"></span>
+        <button mat-mini-fab class="operate-button" (click)="onClick($event)">
+          <mat-icon [@rotate]="rotateState">keyboard_arrow_down</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="panelOpenState">
+      <div class="detail-text-label">詳細</div>
+      <div class="detail-text-area" [innerHTML]="detailHtml"></div>
+      <div class="deadline-label">締め切り日</div>
+      <div class="deadline-text" *ngIf="task.deadline != null">
+        {{ task.deadline }}
+      </div>
+      <div class="deadline-text" *ngIf="task.deadline == null">未登録</div>
+      <div class="doc-url-label">詳細ドキュメントURL</div>
+      <a
+        class="doc-url-text"
+        [href]="task.docUrl"
+        (click)="$event.stopPropagation()"
+        *ngIf="task.docUrl != null"
+        >{{ task.docUrl }}</a
+      >
+      <p class="doc-url-text" *ngIf="task.docUrl == null">未登録</p>
+    </div>
+  </div>
+</mat-card>

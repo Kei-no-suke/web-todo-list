@@ -1,0 +1,25 @@
+.start-background {
+  padding: 100px;
+}
+
+.start-container {
+  border-radius: 15px;
+  background-color: gray;
+  padding: 10px;
+  color: white;
+  width: 50%;
+}
+
+.operate-button {
+  margin: 5px 1vw;
+}
+
+@media screen and (max-width: 700px) {
+  .start-background {
+    padding: 100px 10px;
+  }
+
+  .start-contanier {
+    width: 100%;
+  }
+}

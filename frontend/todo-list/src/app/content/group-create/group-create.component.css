@@ -1,0 +1,15 @@
+.display-container {
+    color: white;
+    border-radius: 15px;
+    padding: 0.7vw;
+    margin: 1vw;
+    background-color: #666666;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.operate-button {
+    margin: 5px 1vw;
+}

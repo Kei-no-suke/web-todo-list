@@ -1,0 +1,28 @@
+<div class="display-container">
+  <h2>グループ作成</h2>
+
+  <form [formGroup]="groupForm">
+    <div fxLayout="column" fxLayoutAlign="start">
+      <mat-form-field>
+        <mat-label>グループ名</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>詳細</mat-label>
+        <textarea matInput formControlName="detail"></textarea>
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutAlign="end">
+        <button
+          mat-raised-button
+          class="operate-button"
+          (click)="onCreate()"
+          [disabled]="name?.invalid"
+        >
+          作成
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
