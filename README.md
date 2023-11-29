@@ -27,6 +27,14 @@ ng serve
 ### 実行手順
 
 1. Eclipseでファイル>インポート>一般>フォルダーまたはアーカイブからプロジェクトでbackendフォルダ内のtodoListフォルダをインポートする。
-2. todoListのプロジェクトを選択した状態でSpring Bootアプリケーションとして実行する
+2. application.propertiesの設定を行う。  
+dbnameにデータベース名を、usernameにユーザー名を、passwordにパスワードを設定する。
+```
+spring.jpa.database=POSTGRESQL
+spring.datasource.url=jdbc:postgresql://localhost:5432/dbname
+spring.datasource.username=username
+spring.datasource.password=password
+```
+3. todoListのプロジェクトを選択した状態でSpring Bootアプリケーションとして実行する。
 
 
